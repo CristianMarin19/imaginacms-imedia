@@ -1,6 +1,7 @@
 @if(count($gallery) > 0)
   <div id="{{$id}}WithVerticalThumbs">
     <div class="row">
+      @if(count($gallery) > 1)
       <div class="col-auto d-none d-sm-block">
         <div class="arrow arrow-up" > {!! json_decode($navText)[0] ?? "<i class='fa fa-angle-up'></i>" !!} </div>
         <div id="{{$id}}vertical" class="vertical">
@@ -12,12 +13,13 @@
                                      :loopVideo="$loopVideo" :mutedVideo="$mutedVideo"              />
             </div>
           @endforeach
-
         </div>
         <div class="arrow arrow-down"> {!! json_decode($navText)[1] ?? "<i class='fa fa-angle-down'></i>" !!} </i></div>
       </div>
-      <div class="col pl-sm-0">
+      @endif
+      <div class="col {{count($gallery) > 1 ? 'pl-sm-0' : ''}}">
         <div id="{{$id}}PrimaryCarousel" class="carousel slide" data-ride="carousel">
+          @if(count($gallery) > 1)
           <a class="carousel-control-prev" href="#{{$id}}PrimaryCarousel" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
@@ -26,6 +28,7 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
           </a>
+          @endif
           <div class="carousel-inner">
             @foreach($gallery as $key=>$item)
               <div class="carousel-item @if($key == 0) active @endif">
