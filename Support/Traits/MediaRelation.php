@@ -86,8 +86,7 @@ trait MediaRelation
 
     //Transform the file
     $transformerParams = $classInfo['entityName'] == 'user' ? ['ignoreUser' => true] : [];
-    $privateDisk = config('filesystems.disks.privatemedia');
-    if ($file->disk == $privateDisk) {
+    if ($file->disk == 'privatemedia') {
       $validatePrivateFiles = method_exists($this, 'allowPrivateMedia') ? $this->allowPrivateMedia() : false;
       if ($validatePrivateFiles) {
         $itemToken = \DB::table('isite__tokenables')->where('entity_id', '=', $file->id)->first();
