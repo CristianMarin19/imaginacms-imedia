@@ -3,6 +3,7 @@
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Storage;
 
+
 /** @var Router $router */
 Route::prefix('/storage')->group(function (Router $router) {
   $router->get('/assets/media/{route?}/{criteria}', [

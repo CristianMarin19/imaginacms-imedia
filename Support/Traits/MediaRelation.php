@@ -84,6 +84,7 @@ trait MediaRelation
       $file = new File(['path' => $defaultPath, 'is_folder' => 0]);
     }
 
+
     //Transform the file
     $transformerParams = $classInfo['entityName'] == 'user' ? ['ignoreUser' => true] : [];
     if ($file->disk == 'privatemedia') {
