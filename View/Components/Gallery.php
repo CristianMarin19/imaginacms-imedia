@@ -35,6 +35,7 @@ class Gallery extends Component
   public $showDescription;
   public $marginItems;
   public $heightItems;
+  public $componentId;
 
   /**
    * Create a new component instance.
