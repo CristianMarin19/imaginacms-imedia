@@ -26,5 +26,6 @@
             :showDescription="$showDescription"
             :marginItems="$marginItems"
             :heightItems="$heightItems"
+            componentId="{{$componentId}}"
     />
 </div>

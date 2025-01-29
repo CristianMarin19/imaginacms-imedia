@@ -48,9 +48,10 @@ class Gallery extends Component
                               $columnMasonry = 3, $navText = "", $maxImages = null, $onlyVideos = false,
                               $onlyImages = false, $autoplayVideo = false, $mutedVideo = false, $loopVideo = false,
                               $stagePadding = 0, $autoplayTimeout = 5000, $aspectRatio = "1-1", $objectFit = 'contain',
-                              $showDescription = false, $marginItems = 0, $heightItems = 350
+                              $showDescription = false, $marginItems = 0, $heightItems = 350, $componentId = null
   )
   {
+    $this->componentId = $componentId ?? "";
     $this->id = $id;
     $this->view = "media::frontend.components.gallery.layouts.$layout.index";
     $this->zones = $zones;
