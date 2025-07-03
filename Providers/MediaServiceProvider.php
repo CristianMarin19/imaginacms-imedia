@@ -131,33 +131,39 @@ class MediaServiceProvider extends ServiceProvider
       'Modules\Media\Repositories\FileRepository',
       function () {
         $repository = new \Modules\Media\Repositories\Eloquent\EloquentFileRepository(new \Modules\Media\Entities\File());
-      
+
         if (! config('app.cache')) {
           return $repository;
         }
-      
+
         return new \Modules\Media\Repositories\Cache\CacheFileDecorator($repository);
       }
     );
-    
- 
-    $this->app->bind(FolderRepository::class, function () {
-      return new EloquentFolderRepository(new File());
-    });
-  
+
+
+    $this->app->bind(
+      'Modules\Media\Repositories\FolderRepository',
+      function () {
+        $repository = new \Modules\Media\Repositories\Eloquent\EloquentFolderRepository(new \Modules\Media\Entities\File());
+        if (!config('app.cache')) {
+          return $repository;
+        }
+        return new \Modules\Media\Repositories\Cache\CacheFolderDecorator($repository);
+      });
+
     $this->app->bind(
       'Modules\Media\Repositories\ZoneRepository',
       function () {
         $repository = new \Modules\Media\Repositories\Eloquent\EloquentZoneRepository(new \Modules\Media\Entities\Zone());
-      
+
         if (! config('app.cache')) {
           return $repository;
         }
-      
+
         return new \Modules\Media\Repositories\Cache\CacheZoneDecorator($repository);
       }
     );
-  
+
   }
 
   /**
