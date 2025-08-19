@@ -1,0 +1,12 @@
+
+{
+    "name": "Imedia",
+    "alias": "imedia",
+    "description": "manage imedia",
+    "keywords": ["imedia"],
+    "priority": 0,
+    "providers": [
+        "Modules\\Imedia\\Providers\\ImediaServiceProvider"
+    ],
+    "files": []
+}
